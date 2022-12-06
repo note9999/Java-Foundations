@@ -1,3 +1,3 @@
 # Java-Foundations
 
-TO learn Java
+To learn Java
