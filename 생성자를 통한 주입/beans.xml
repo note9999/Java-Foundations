@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id='obj1' class='sanghoon.beans.TestBean' lazy-init='true' />
+
+	<bean id='obj2' class='sanghoon.beans.TestBean' lazy-init='true'>
+		<constructor-arg value='100' type='int'/>
+	</bean>
+	
+	<bean id='obj3' class='sanghoon.beans.TestBean' lazy-init='true'>
+		<constructor-arg value='11.11' type='double'/>
+	</bean>
+	
+	<bean id='obj4' class='sanghoon.beans.TestBean' lazy-init='true'>
+		<constructor-arg value='문자열'/>
+	</bean>
+	
+	<bean id='obj5' class='sanghoon.beans.TestBean' lazy-init='true'>
+		<constructor-arg value='200' type='int'/>
+		<constructor-arg value='22.22' type='double'/>
+		<constructor-arg value='안녕하세요' type='java.lang.String'/>
+	</bean>
+	
+	<bean id='obj6' class='sanghoon.beans.TestBean' lazy-init='true'>
+		<constructor-arg value='반갑습니다' type='java.lang.String'/>
+		<constructor-arg value='300' type='int'/>
+		<constructor-arg value='33.33' type='double'/>
+	</bean>
+	
+	
+	<bean id='obj7' class='sanghoon.beans.TestBean' lazy-init='true'>
+		<constructor-arg value='44.44' type='double' index='1'/>
+		<constructor-arg value='4' type='int' index='0'/>
+		<constructor-arg value='반갑습니다' type='java.lang.String' index='2'/>
+	</bean>
+	
+	<bean id='obj8' class='sanghoon.beans.TestBean2' lazy-init='true'>
+		<constructor-arg>
+		<bean class='sanghoon.beans.DataBean'/>
+		</constructor-arg>
+		<constructor-arg>
+		<bean class='sanghoon.beans.DataBean'/>
+		</constructor-arg>
+	</bean>
+	
+	<!--주입할 때 마다 자동으로 객체생성하려고 scope='prototype' 설정했음!!   --> 
+	<bean id='data_bean' class='sanghoon.beans.DataBean' scope='prototype'/> 
+	
+	<bean id='obj9' class='sanghoon.beans.TestBean2' lazy-init='true'>
+		<constructor-arg ref= 'data_bean'/>
+		<constructor-arg  ref='data_bean'/>
+	</bean>
+	
+</beans>
